@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import BarChart from "./components/barchart/BarChart";
+
+import CHART_DATA from "./constants/data";
+
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [showChart, setShowChart] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="container">
+      <button
+        className="toggle_btn"
+        onClick={() => setShowChart((prev) => !prev)}
+      >
+        Toggle Chart
+      </button>
+      {showChart && <BarChart data={CHART_DATA} />}
+    </main>
   );
 }
 
