@@ -15,7 +15,12 @@ function App() {
       >
         Toggle Chart
       </button>
-      {showChart && <BarChart data={CHART_DATA} />}
+      {showChart && (
+        <BarChart
+          data={CHART_DATA}
+          labels={{ y_axis: "Number of Tickets", x_axis: "Departments" }}
+        />
+      )}
     </main>
   );
 }
